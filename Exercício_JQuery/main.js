@@ -3,21 +3,22 @@ $(document).ready(function () {
         e.preventDefault();
         const novaTarefa = $(".form-input").val();
 
-      // Verifica se a tarefa já existe na lista
         const tarefaExiste = $("ul li")
-        .toArray()
-        .some((li) => $(li).text() === novaTarefa);
+            .toArray()
+            .some((li) => $(li).text() === novaTarefa);
+            
         if (tarefaExiste) {
-            alert("Esta tarefa já existe na lista.");
+            alert("Tarefa já adicionada! Tente novamente");
             return;
-    }
+        }
 
-    const listaTarefas = $(`<li class="has-marker">${novaTarefa}</li>`);
+        const listaTarefas = $(`<li class="has-marker">${novaTarefa}</li>`);
         $(listaTarefas).appendTo("ul");
-        $(".form-input").val(""); // limpa o input após adicionar a tarefa
+        $(".form-input").val("");
     });
 
     $("ul").on("click", "li", function () {
         $(this).toggleClass("strike-through");
     });
 });
+
