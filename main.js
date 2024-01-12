@@ -21,6 +21,5 @@ $(document).ready(function() {
         `).appendTo(NovoItem);
         $(NovoItem).appendTo('ul');
         $('#EnderecoImagemNova').val('');
-    
     })
 })
