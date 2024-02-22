@@ -3,21 +3,21 @@ $(document).ready(function () {
         e.preventDefault();
         const novaTarefa = $(".form-input").val();
 
-        const tarefaExiste = $("ul li")
+        const tarefaExiste = $("ol li")
             .toArray()
             .some((li) => $(li).text() === novaTarefa);
-            
+
         if (tarefaExiste) {
             alert("Tarefa já adicionada! Tente novamente");
             return;
         }
 
-        const listaTarefas = $(`<li class="has-marker">${novaTarefa}</li>`);
-        $(listaTarefas).appendTo("ul");
+        const listaTarefas = $(`<li class="TarefaInserida">${novaTarefa}</li>`);
+        $(listaTarefas).appendTo("ol");
         $(".form-input").val("");
     });
 
-    $("ul").on("click", "li", function () {
+    $("ol").on("click", "li", function () {
         $(this).toggleClass("strike-through");
     });
 });
